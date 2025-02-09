@@ -10,7 +10,7 @@ variable "region" {
 variable "bucket_name" {
   description = "Name of the S3 bucket"
   type        = string
-  default     = "www.project2-sws.projects-devops.cfd"
+  default     = "www.p2-sws.projects-devops.cfd"
 }
 
 variable "github_username" {
@@ -22,7 +22,7 @@ variable "github_username" {
 variable "repository_name" {
   description = "Name of the repository in github that holds the index.html"
   type        = string
-  default     = "project2-staticwebsite"
+  default     = "project2-staticwebsite-content"
 }
 
 variable "repository_branch" {

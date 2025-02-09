@@ -39,8 +39,8 @@ resource "aws_s3_bucket_versioning" "website" {
 
 resource "aws_s3_object" "index_file" {
   bucket = aws_s3_bucket.website.id     # Reference to the S3 bucket
-  key    = "site-data/index.html"                 # Path inside the bucket
-  source = "../site-data/index.html"    # Local file to upload
+  key    = "index.html"                 # Path inside the bucket
+  source = "index.html"    # Local file to upload
   content_type = "text/html"
   acl    = "private"                     # Set permissions (private, public-read, etc.)
 }
@@ -108,7 +108,7 @@ resource "aws_cloudfront_distribution" "cdn" {
   }
 
   enabled             = true
-  default_root_object = "site-data/index.html"
+  default_root_object = "index.html"
 
   aliases = [var.bucket_name]
 
