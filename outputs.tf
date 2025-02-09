@@ -2,12 +2,14 @@
 # Output DNS Records for SSL Validation
 # ---------------------
 output "acm_dns_records" {
-  value = [for dvo in aws_acm_certificate.cert.domain_validation_options : {
+  value = 
+  [
+    url = "https://${var.region}.console.aws.amazon.com/acm/home?region=${var.region}#/certificates/${aws_acm_certificate.cert.arn}"
+    for dvo in aws_acm_certificate.cert.domain_validation_options : {
     name  = dvo.resource_record_name
     type  = dvo.resource_record_type
     value = dvo.resource_record_value
-  }
-  url = "https://${var.region}.console.aws.amazon.com/acm/home?region=${var.region}#/certificates/${aws_acm_certificate.cert.arn}"
+    }
   ]
 
   description = "DNS records required for ACM SSL certificate validation."
