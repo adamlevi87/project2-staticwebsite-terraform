@@ -87,8 +87,8 @@ resource "null_resource" "dns_records_failure" {
   provisioner "local-exec" {
     interpreter = ["/bin/bash" ,"-c"]
     command = <<-EOT
-      exec "echo -e '\\e[31mTerraform is going to fail, you must run Terraform Output and create the required DNS records and then retry\\e[0m'"
-      exec "echo \"use this link: https://${var.region}.console.aws.amazon.com/acm/home?region=${var.region}#/certificates/${aws_acm_certificate.cert.arn}\" | sed 's/arn:.*certificate\\///'"
+      echo -e '\\e[31mTerraform is going to fail, you must run Terraform Output and create the required DNS records and then retry\\e[0m'
+      echo \"use this link: https://${var.region}.console.aws.amazon.com/acm/home?region=${var.region}#/certificates/${aws_acm_certificate.cert.arn}\" | sed 's/arn:.*certificate\\///'
     EOT
   }
 }
