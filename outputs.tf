@@ -6,7 +6,9 @@ output "acm_dns_records" {
     name  = dvo.resource_record_name
     type  = dvo.resource_record_type
     value = dvo.resource_record_value
-  }]
+  }
+  url = "https://${var.region}.console.aws.amazon.com/acm/home?region=${var.region}#/certificates/${aws_acm_certificate.cert.arn}"
+  ]
 
   description = "DNS records required for ACM SSL certificate validation."
 }
