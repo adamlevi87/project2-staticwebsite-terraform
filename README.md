@@ -1,5 +1,6 @@
 # project2-staticwebsite-terraform
 
+(learning process-> did everything manually using the UI then starting working on this TF code)
 
 This is a basic project:
 
